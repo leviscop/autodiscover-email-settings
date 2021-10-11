@@ -16,6 +16,16 @@
 		</incomingServer>
 		{% endif -%}
 
+		{%- if imaps.host %}
+	    <incomingServer type="imaps">
+			<hostname>{{imaps.host}}</hostname>
+			<port>{{imaps.port}}</port>
+			<socketType>{{imaps.socket}}</socketType>
+			<authentication>password-cleartext</authentication>
+			<username>%EMAILADDRESS%</username>
+		</incomingServer>
+		{% endif -%}
+
 		{%- if pop.host %}
 	    <incomingServer type="pop3">
 			<hostname>{{pop.host}}</hostname>
@@ -26,11 +36,41 @@
 		</incomingServer>
 		{% endif -%}
 
+		{%- if pops.host %}
+	    <incomingServer type="pop3s">
+			<hostname>{{pops.host}}</hostname>
+			<port>{{pops.port}}</port>
+			<socketType>{{pops.socket}}</socketType>
+			<authentication>password-cleartext</authentication>
+			<username>%EMAILADDRESS%</username>
+		</incomingServer>
+		{% endif -%}
+
 		{%- if smtp.host %}
 	    <outgoingServer type="smtp">
 			<hostname>{{smtp.host}}</hostname>
 			<port>{{smtp.port}}</port>
 			<socketType>{{smtp.socket}}</socketType>
+			<authentication>password-cleartext</authentication>
+			<username>%EMAILADDRESS%</username>
+	    </outgoingServer>
+		{% endif -%}
+
+		{%- if smtps.host %}
+	    <outgoingServer type="smtps">
+			<hostname>{{smtps.host}}</hostname>
+			<port>{{smtps.port}}</port>
+			<socketType>{{smtps.socket}}</socketType>
+			<authentication>password-cleartext</authentication>
+			<username>%EMAILADDRESS%</username>
+	    </outgoingServer>
+		{% endif -%}
+
+		{%- if submission.host %}
+	    <outgoingServer type="submission">
+			<hostname>{{submission.host}}</hostname>
+			<port>{{submission.port}}</port>
+			<socketType>{{submission.socket}}</socketType>
 			<authentication>password-cleartext</authentication>
 			<username>%EMAILADDRESS%</username>
 	    </outgoingServer>
