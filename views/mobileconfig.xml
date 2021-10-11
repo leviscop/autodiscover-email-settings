@@ -6,7 +6,7 @@
 	<false/>
 	<key>PayloadContent</key>
 	<array>
-{% if imap.host || pop.host %}
+{% if imaps.host || pops.host %}
 		<dict>
 			<key>EmailAccountDescription</key>
 			<string>{{email}}</string>
@@ -19,11 +19,11 @@
 			<key>IncomingMailServerAuthentication</key>
 			<string>EmailAuthPassword</string>
 			<key>IncomingMailServerHostName</key>
-			<string>{% if imap.host %}{{imap.host}}{% else %}{{pop.host}}{% endif %}</string>
+			<string>{% if imaps.host %}{{imaps.host}}{% else %}{{pops.host}}{% endif %}</string>
 			<key>IncomingMailServerPortNumber</key>
-			<integer>{% if imap.host %}{{imap.port}}{% else %}{{pop.port}}{% endif %}</integer>
+			<integer>{% if imaps.host %}{{imaps.port}}{% else %}{{pops.port}}{% endif %}</integer>
 			<key>IncomingMailServerUseSSL</key>
-			<{%- if imap.host %}{{imapssl}}{% else %}{{popssl}}{% endif -%}/>
+			<{%- if imaps.host %}{{imapssl}}{% else %}{{popssl}}{% endif -%}/>
 			<key>IncomingMailServerUsername</key>
 			<string>{{email}}</string>
 			<key>OutgoingPasswordSameAsIncomingPassword</key>
@@ -31,9 +31,9 @@
 			<key>OutgoingMailServerAuthentication</key>
 			<string>EmailAuthPassword</string>
 			<key>OutgoingMailServerHostName</key>
-			<string>{{smtp.host}}</string>
+			<string>{{smtps.host}}</string>
 			<key>OutgoingMailServerPortNumber</key>
-			<integer>{{smtp.port}}</integer>
+			<integer>{{smtps.port}}</integer>
 			<key>OutgoingMailServerUseSSL</key>
 			<{{smtpssl}}/>
 			<key>OutgoingMailServerUsername</key>
