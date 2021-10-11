@@ -50,18 +50,18 @@ function *autodiscover() {
 		email		= username + "@" + domain;
 	}
 
-	const imapenc	= settings.imap.socket === "STARTTLS" ? "TLS" : settings.imap.socket;
-	const popenc	= settings.pop.socket === "STARTTLS" ? "TLS" : settings.pop.socket;
-	const smtpenc	= settings.smtp.socket === "STARTTLS" ? "TLS" : settings.smtp.socket;
+	const imapsenc	= settings.imaps.socket === "STARTTLS" ? "TLS" : settings.imaps.socket;
+	const popsenc	= settings.pops.socket === "STARTTLS" ? "TLS" : settings.pops.socket;
+	const smtpsenc	= settings.smtps.socket === "STARTTLS" ? "TLS" : settings.smtps.socket;
 
 	yield this.render("autodiscover", {
 		schema: xmlns,
 		email,
 		username,
 		domain,
-		imapenc,
-		popenc,
-		smtpenc
+		imapsenc,
+		popsenc,
+		smtpsenc
 	});
 }
 
@@ -101,9 +101,9 @@ router.get("/email.mobileconfig", function *autoconfig() {
 
 	const filename	= `${domain}.mobileconfig`;
 
-	const imapssl	= settings.imap.socket === "SSL" || settings.imap.socket === "STARTTLS" ? "true" : "false";
-	const popssl	= settings.pop.socket === "SSL" || settings.pop.socket === "STARTTLS" ? "true" : "false";
-	const smtpssl	= settings.smtp.socket === "SSL" || settings.smtp.socket === "STARTTLS" ? "true" : "false";
+	const imapssl	= settings.imaps.socket === "SSL" || settings.imaps.socket === "STARTTLS" ? "true" : "false";
+	const popssl	= settings.pops.socket === "SSL" || settings.pops.socket === "STARTTLS" ? "true" : "false";
+	const smtpssl	= settings.smtps.socket === "SSL" || settings.smtps.socket === "STARTTLS" ? "true" : "false";
 	const ldapssl	= settings.ldap.socket === "SSL" || settings.ldap.port === "636" ? "true" : "false";
 
 	this.set("Content-Type", "application/x-apple-aspen-config; charset=utf-8");
