@@ -362,6 +362,31 @@
                     </div>
                     {% endif -%}
 
+                    {%- if imaps.host %}
+                    <div class="col-md-6">
+                        <h5 id="manualconfig-imaps">Incoming server (IMAPS)</h5>
+                        <dl>
+                            <dt>Hostname <button type="button"
+                                class="btn btn-outline-secondary btn-sm"
+                                title="Copy IMAPS hostname"
+                                onclick="copy('manualconfig-imaps-hostname')">Copy</button></dt>
+                            <dd id="manualconfig-imaps-hostname">{{imaps.host}}</dd>
+
+                            <dt>Port <button type="button"
+                                class="btn btn-outline-secondary btn-sm"
+                                title="Copy IMAPS port"
+                                onclick="copy('manualconfig-imaps-port')">Copy</button></dt>
+                            <dd id="manualconfig-imaps-port">{{imaps.port}}</dd>
+
+                            <dt>Encryption <button type="button"
+                                class="btn btn-outline-secondary btn-sm"
+                                title="Copy IMAPS encryption"
+                                onclick="copy('manualconfig-imaps-socket')">Copy</button></dt>
+                            <dd id="manualconfig-imaps-socket">{{imaps.socket}}</dd>
+                        </dl>
+                    </div>
+                    {% endif -%}
+
                     {%- if pop.host %}
                     <div class="col-md-6">
                         <h5 id="manualconfig-pop">Incoming server (POP)</h5>
@@ -383,6 +408,31 @@
                                 title="Copy POP encryption"
                                 onclick="copy('manualconfig-pop-socket')">Copy</button></dt>
                             <dd id="manualconfig-pop-socket">{{pop.socket}}</dd>
+                        </dl>
+                    </div>
+                    {% endif -%}
+
+                    {%- if pops.host %}
+                    <div class="col-md-6">
+                        <h5 id="manualconfig-pops">Incoming server (POPS)</h5>
+                        <dl>
+                            <dt>Hostname <button type="button"
+                                class="btn btn-outline-secondary btn-sm"
+                                title="Copy POPS hostname"
+                                onclick="copy('manualconfig-pops-hostname')">Copy</button></dt>
+                            <dd id="manualconfig-pops-hostname">{{pops.host}}</dd>
+
+                            <dt>Port <button type="button"
+                                class="btn btn-outline-secondary btn-sm"
+                                title="Copy POPS port"
+                                onclick="copy('manualconfig-pops-port')">Copy</button></dt>
+                            <dd id="manualconfig-pops-port">{{pops.port}}</dd>
+
+                            <dt>Encryption <button type="button"
+                                class="btn btn-outline-secondary btn-sm"
+                                title="Copy POPS encryption"
+                                onclick="copy('manualconfig-pops-socket')">Copy</button></dt>
+                            <dd id="manualconfig-pops-socket">{{pops.socket}}</dd>
                         </dl>
                     </div>
                     {% endif -%}
@@ -410,6 +460,56 @@
                                 title="Copy SMTP encryption"
                                 onclick="copy('manualconfig-smtp-socket')">Copy</button></dt>
                             <dd id="manualconfig-smtp-socket">{{smtp.socket}}</dd>
+                        </dl>
+                    </div>
+                    {% endif -%}
+
+                    {%- if smtps.host %}
+                    <div class="col-md-6">
+                        <h5 id="manualconfig-smtps">Outgoing server (SMTPS)</h5>
+                        <dl>
+                            <dt>Hostname <button type="button"
+                                class="btn btn-outline-secondary btn-sm"
+                                title="Copy SMTPS hostname"
+                                onclick="copy('manualconfig-smtps-hostname')">Copy</button></dt>
+                            <dd id="manualconfig-smtps-hostname">{{smtps.host}}</dd>
+
+                            <dt>Port <button type="button"
+                                class="btn btn-outline-secondary btn-sm"
+                                title="Copy SMTPS port"
+                                onclick="copy('manualconfig-smtps-port')">Copy</button></dt>
+                            <dd id="manualconfig-smtps-port">{{smtps.port}}</dd>
+
+                            <dt>Encryption <button type="button"
+                                class="btn btn-outline-secondary btn-sm"
+                                title="Copy SMTPS encryption"
+                                onclick="copy('manualconfig-smtps-socket')">Copy</button></dt>
+                            <dd id="manualconfig-smtps-socket">{{smtps.socket}}</dd>
+                        </dl>
+                    </div>
+                    {% endif -%}
+
+                    {%- if submission.host %}
+                    <div class="col-md-6">
+                        <h5 id="manualconfig-submission">Outgoing server (SUBMISSION)</h5>
+                        <dl>
+                            <dt>Hostname <button type="button"
+                                class="btn btn-outline-secondary btn-sm"
+                                title="Copy SUBMISSION hostname"
+                                onclick="copy('manualconfig-submission-hostname')">Copy</button></dt>
+                            <dd id="manualconfig-submission-hostname">{{submission.host}}</dd>
+
+                            <dt>Port <button type="button"
+                                class="btn btn-outline-secondary btn-sm"
+                                title="Copy SUBMISSION port"
+                                onclick="copy('manualconfig-submission-port')">Copy</button></dt>
+                            <dd id="manualconfig-submission-port">{{submission.port}}</dd>
+
+                            <dt>Encryption <button type="button"
+                                class="btn btn-outline-secondary btn-sm"
+                                title="Copy SUBMISSION encryption"
+                                onclick="copy('manualconfig-submission-socket')">Copy</button></dt>
+                            <dd id="manualconfig-submission-socket">{{submission.socket}}</dd>
                         </dl>
                     </div>
                     {% endif -%}
