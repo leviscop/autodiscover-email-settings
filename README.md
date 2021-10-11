@@ -20,13 +20,14 @@ It provides IMAP/POP/SMTP/LDAP Autodiscover capabilities on Microsoft Outlook/Ap
 
     autoconfig              IN      A      {{$AUTODISCOVER_IP}}
     autodiscover            IN      A      {{$AUTODISCOVER_IP}}
-    imap                    IN      CNAME  {{$MX_DOMAIN}}.
-    smtp                    IN      CNAME  {{$MX_DOMAIN}}.
+    mail                    IN      CNAME  {{$DOMAIN}}.
     @                       IN      MX 10  {{$MX_DOMAIN}}.
     @                       IN      TXT    "mailconf=https://autoconfig.{{$DOMAIN}}/mail/config-v1.1.xml"
-    _imaps._tcp             IN      SRV    0 0 {{IMAP_PORT}} {{MX_DOMAIN}}.
-    _pop3s._tcp             IN      SRV    0 0 {{POP_PORT}} {{MX_DOMAIN}}.
-    _submission._tcp        IN      SRV    0 0 {{SMTP_PORT}} {{MX_DOMAIN}}.
+    _imap._tcp              IN      SRV    0 0 {{IMAP_PORT}} {{MX_DOMAIN}}.
+	_imaps._tcp             IN      SRV    0 0 {{IMAPS_PORT}} {{MX_DOMAIN}}.
+    _pop3._tcp              IN      SRV    0 0 {{POP_PORT}} {{MX_DOMAIN}}.
+    _pop3s._tcp             IN      SRV    0 0 {{POPS_PORT}} {{MX_DOMAIN}}.
+    _submission._tcp        IN      SRV    0 0 {{SUBMISSION_PORT}} {{MX_DOMAIN}}.
     _autodiscover._tcp      IN      SRV    0 0 443 autodiscover.{{$DOMAIN}}.
     _ldap._tcp              IN      SRV    0 0 {{LDAP_PORT}} {{LDAP_HOST}}.
 
@@ -38,8 +39,10 @@ Replace above variables with data according to this table
 | DOMAIN          | Your apex/bare/naked Domain         |
 | AUTODISCOVER_IP | IP of the Autoconfig HTTP           |
 | IMAP_PORT       | Port for your IMAP server           |
+| IMAPS_PORT      | Port for your IMAPS server          |
 | POP_PORT        | Port for your POP server            |
-| SMTP_PORT       | Port for your SMTP server           |
+| POPS_PORT       | Port for your POPS server           |
+| SUBMISSION_PORT | Port for your SUBMISSION server     |
 | LDAP_HOST       | The hostname of your LDAP server    |
 | LDAP_PORT       | Port for your LDAP server           |
 
@@ -64,17 +67,33 @@ services:
       - SUPPORT_URL=https://autodiscover.example.com
       - DOMAIN=example.com
       # IMAP configuration (host mandatory to enable)
-      - IMAP_HOST=imap.example.com
-      - IMAP_PORT=993
-      - IMAP_SOCKET=SSL
+      - IMAP_HOST=mail.example.com
+      - IMAP_PORT=143
+      - IMAP_SOCKET=STARTTLS
+      # IMAPS configuration (host mandatory to enable)
+      - IMAPS_HOST=mail.example.com
+      - IMAPS_PORT=993
+      - IMAPS_SOCKET=SSL
       # POP configuration (host mandatory to enable)
-      - POP_HOST=pop3.example.com
-      - POP_PORT=995
-      - POP_SOCKET=SSL
+      - POP_HOST=mail.example.com
+      - POP_PORT=110
+      - POP_SOCKET=STARTTLS
+      # POPS configuration (host mandatory to enable)
+      - POPS_HOST=mail.example.com
+      - POPS_PORT=995
+      - POPS_SOCKET=SSL
       # SMTP configuration (host mandatory to enable)
-      - SMTP_HOST=smtp.example.com
-      - SMTP_PORT=587
-      - SMTP_SOCKET=STARTTLS
+      - SMTP_HOST=mail.example.com
+      - SMTP_PORT=25
+      - SMTP_SOCKET=NONE
+      # SMTPS configuration (host mandatory to enable)
+      - SMTPS_HOST=mail.example.com
+      - SMTPS_PORT=465
+      - SMTPS_SOCKET=SSL
+      # SUBMISSION configuration (host mandatory to enable)
+      - SUBMISSION_HOST=mail.example.com
+      - SUBMISSION_PORT=587
+      - SUBMISSION_SOCKET=STARTTLS
       # MobileSync/ActiveSync configuration (url mandatory to enable)
       - MOBILESYNC_URL=https://sync.example.com
       - MOBILESYNC_NAME=sync.example.com
@@ -110,16 +129,33 @@ services:
       - SUPPORT_URL=https://autodiscover.example.com
       - DOMAIN=example.com
       # IMAP configuration (host mandatory to enable)
-      - IMAP_HOST=imap.example.com
-      - IMAP_PORT=993
-      - IMAP_SOCKET=SSL
+      - IMAP_HOST=mail.example.com
+      - IMAP_PORT=143
+      - IMAP_SOCKET=STARTTLS
+      # IMAPS configuration (host mandatory to enable)
+      - IMAPS_HOST=mail.example.com
+      - IMAPS_PORT=993
+      - IMAPS_SOCKET=SSL
       # POP configuration (host mandatory to enable)
-      - POP_HOST=pop3.example.com
-      - POP_PORT=995
-      - POP_SOCKET=SSL
+      - POP_HOST=mail.example.com
+      - POP_PORT=110
+      - POP_SOCKET=STARTTLS
+      # POPS configuration (host mandatory to enable)
+      - POPS_HOST=mail.example.com
+      - POPS_PORT=995
+      - POPS_SOCKET=SSL
       # SMTP configuration (host mandatory to enable)
-      - SMTP_HOST=smtp.example.com
-      - SMTP_PORT=587
+      - SMTP_HOST=mail.example.com
+      - SMTP_PORT=25
+      - SMTP_SOCKET=NONE
+      # SMTPS configuration (host mandatory to enable)
+      - SMTPS_HOST=mail.example.com
+      - SMTPS_PORT=465
+      - SMTPS_SOCKET=SSL
+      # SUBMISSION configuration (host mandatory to enable)
+      - SUBMISSION_HOST=mail.example.com
+      - SUBMISSION_PORT=587
+      - SUBMISSION_SOCKET=STARTTLS
       - SMTP_SOCKET=STARTTLS
       # MobileSync/ActiveSync configuration (url mandatory to enable)
       - MOBILESYNC_URL=https://sync.example.com
