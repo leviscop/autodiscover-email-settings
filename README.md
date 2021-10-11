@@ -59,9 +59,9 @@ You can also achieve this with another proxy like [Nginx](https://www.nginx.com/
 version: '2'
 
 services:
-  autodiscover-example-com:
-    image: monogramm/autodiscover-email-settings:latest
-    container_name: autodiscover
+  autodiscover:
+    image: ghcr.io/leviscop/autodiscover-email-settings:main
+    container_name: mailserver-autodiscover
     environment:
       - COMPANY_NAME=Company
       - SUPPORT_URL=https://autodiscover.example.com
@@ -121,9 +121,9 @@ services:
 version: '3'
 
 services:
-  autodiscover-example-com:
-    image: monogramm/autodiscover-email-settings:latest
-    container_name: autodiscover
+  autodiscover:
+    image: ghcr.io/leviscop/autodiscover-email-settings:main
+    container_name: mailserver-autodiscover
     environment:
       - COMPANY_NAME=Company
       - SUPPORT_URL=https://autodiscover.example.com
