@@ -9,15 +9,35 @@ module.exports = {
 		port: process.env.IMAP_PORT,
 		socket: process.env.IMAP_SOCKET
 	},
+	imaps: {
+		host: process.env.IMAPS_HOST,
+		port: process.env.IMAPS_PORT,
+		socket: process.env.IMAPS_SOCKET
+	},
 	pop: {
 		host: process.env.POP_HOST,
 		port: process.env.POP_PORT,
 		socket: process.env.POP_SOCKET
 	},
+	pops: {
+		host: process.env.POPS_HOST,
+		port: process.env.POPS_PORT,
+		socket: process.env.POPS_SOCKET
+	},
 	smtp: {
 		host: process.env.SMTP_HOST,
 		port: process.env.SMTP_PORT,
 		socket: process.env.SMTP_SOCKET
+	},
+	smtps: {
+		host: process.env.SMTPS_HOST,
+		port: process.env.SMTPS_PORT,
+		socket: process.env.SMTPS_SOCKET
+	},
+	submission: {
+		host: process.env.SUBMISSION_HOST,
+		port: process.env.SUBMISSION_PORT,
+		socket: process.env.SUBMISSION_SOCKET
 	},
 	mobilesync: {
 		url: process.env.MOBILESYNC_URL,
