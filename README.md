@@ -63,53 +63,53 @@ services:
     image: ghcr.io/leviscop/autodiscover-email-settings:main
     container_name: mailserver-autodiscover
     environment:
-      - COMPANY_NAME=Company
-      - SUPPORT_URL=https://autodiscover.example.com
-      - DOMAIN=example.com
+      - AD_COMPANY_NAME=Company
+      - AD_SUPPORT_URL=https://autodiscover.example.com
+      - AD_DOMAIN=example.com
       # IMAP configuration (host mandatory to enable)
-      - IMAP_HOST=mail.example.com
-      - IMAP_PORT=143
-      - IMAP_SOCKET=STARTTLS
+      - AD_IMAP_HOST=mail.example.com
+      - AD_IMAP_PORT=143
+      - AD_IMAP_SOCKET=STARTTLS
       # IMAPS configuration (host mandatory to enable)
-      - IMAPS_HOST=mail.example.com
-      - IMAPS_PORT=993
-      - IMAPS_SOCKET=SSL
+      - AD_IMAPS_HOST=mail.example.com
+      - AD_IMAPS_PORT=993
+      - AD_IMAPS_SOCKET=SSL
       # POP configuration (host mandatory to enable)
-      - POP_HOST=mail.example.com
-      - POP_PORT=110
-      - POP_SOCKET=STARTTLS
+      - AD_POP_HOST=mail.example.com
+      - AD_POP_PORT=110
+      - AD_POP_SOCKET=STARTTLS
       # POPS configuration (host mandatory to enable)
-      - POPS_HOST=mail.example.com
-      - POPS_PORT=995
-      - POPS_SOCKET=SSL
+      - AD_POPS_HOST=mail.example.com
+      - AD_POPS_PORT=995
+      - AD_POPS_SOCKET=SSL
       # SMTP configuration (host mandatory to enable)
-      - SMTP_HOST=mail.example.com
-      - SMTP_PORT=25
-      - SMTP_SOCKET=NONE
+      - AD_SMTP_HOST=mail.example.com
+      - AD_SMTP_PORT=25
+      - AD_SMTP_SOCKET=NONE
       # SMTPS configuration (host mandatory to enable)
-      - SMTPS_HOST=mail.example.com
-      - SMTPS_PORT=465
-      - SMTPS_SOCKET=SSL
+      - AD_SMTPS_HOST=mail.example.com
+      - AD_SMTPS_PORT=465
+      - AD_SMTPS_SOCKET=SSL
       # SUBMISSION configuration (host mandatory to enable)
-      - SUBMISSION_HOST=mail.example.com
-      - SUBMISSION_PORT=587
-      - SUBMISSION_SOCKET=STARTTLS
+      - AD_SUBMISSION_HOST=mail.example.com
+      - AD_SUBMISSION_PORT=587
+      - AD_SUBMISSION_SOCKET=STARTTLS
       # MobileSync/ActiveSync configuration (url mandatory to enable)
-      - MOBILESYNC_URL=https://sync.example.com
-      - MOBILESYNC_NAME=sync.example.com
+      - AD_MOBILESYNC_URL=https://sync.example.com
+      - AD_MOBILESYNC_NAME=sync.example.com
       # LDAP configuration (host mandatory to enable)
-      - LDAP_HOST=ldap.example.com
-      - LDAP_PORT=636
-      - LDAP_SOCKET=SSL
-      - LDAP_BASE=dc=ldap,dc=example,dc=com
-      - LDAP_USER_FIELD=uid
-      - LDAP_USER_BASE=ou=People,dc=ldap,dc=example,dc=com
-      - LDAP_SEARCH=(|(objectClass=PostfixBookMailAccount))
+      - AD_LDAP_HOST=ldap.example.com
+      - AD_LDAP_PORT=636
+      - AD_LDAP_SOCKET=SSL
+      - AD_LDAP_BASE=dc=ldap,dc=example,dc=com
+      - AD_LDAP_USER_FIELD=uid
+      - AD_LDAP_USER_BASE=ou=People,dc=ldap,dc=example,dc=com
+      - AD_LDAP_SEARCH=(|(objectClass=PostfixBookMailAccount))
       # Apple mobile config identifiers (identifier mandatory to enable)
-      - PROFILE_IDENTIFIER=com.example.autodiscover
-      - PROFILE_UUID=92943D26-CAB3-4086-897D-DC6C0D8B1E86
-      - MAIL_UUID=7A981A9E-D5D0-4EF8-87FE-39FD6A506FAC
-      - LDAP_UUID=6ECB6BA9-2208-4ABF-9E60-4E9F4CD7309E
+      - AD_PROFILE_IDENTIFIER=com.example.autodiscover
+      - AD_PROFILE_UUID=92943D26-CAB3-4086-897D-DC6C0D8B1E86
+      - AD_MAIL_UUID=7A981A9E-D5D0-4EF8-87FE-39FD6A506FAC
+      - AD_LDAP_UUID=6ECB6BA9-2208-4ABF-9E60-4E9F4CD7309E
     labels:
       - "traefik.port=8000"
       - "traefik.frontend.rule=Host:autoconfig.example.com,autodiscover.example.com"
@@ -125,54 +125,53 @@ services:
     image: ghcr.io/leviscop/autodiscover-email-settings:main
     container_name: mailserver-autodiscover
     environment:
-      - COMPANY_NAME=Company
-      - SUPPORT_URL=https://autodiscover.example.com
-      - DOMAIN=example.com
+      - AD_COMPANY_NAME=Company
+      - AD_SUPPORT_URL=https://autodiscover.example.com
+      - AD_DOMAIN=example.com
       # IMAP configuration (host mandatory to enable)
-      - IMAP_HOST=mail.example.com
-      - IMAP_PORT=143
-      - IMAP_SOCKET=STARTTLS
+      - AD_IMAP_HOST=mail.example.com
+      - AD_IMAP_PORT=143
+      - AD_IMAP_SOCKET=STARTTLS
       # IMAPS configuration (host mandatory to enable)
-      - IMAPS_HOST=mail.example.com
-      - IMAPS_PORT=993
-      - IMAPS_SOCKET=SSL
+      - AD_IMAPS_HOST=mail.example.com
+      - AD_IMAPS_PORT=993
+      - AD_IMAPS_SOCKET=SSL
       # POP configuration (host mandatory to enable)
-      - POP_HOST=mail.example.com
-      - POP_PORT=110
-      - POP_SOCKET=STARTTLS
+      - AD_POP_HOST=mail.example.com
+      - AD_POP_PORT=110
+      - AD_POP_SOCKET=STARTTLS
       # POPS configuration (host mandatory to enable)
-      - POPS_HOST=mail.example.com
-      - POPS_PORT=995
-      - POPS_SOCKET=SSL
+      - AD_POPS_HOST=mail.example.com
+      - AD_POPS_PORT=995
+      - AD_POPS_SOCKET=SSL
       # SMTP configuration (host mandatory to enable)
-      - SMTP_HOST=mail.example.com
-      - SMTP_PORT=25
-      - SMTP_SOCKET=NONE
+      - AD_SMTP_HOST=mail.example.com
+      - AD_SMTP_PORT=25
+      - AD_SMTP_SOCKET=NONE
       # SMTPS configuration (host mandatory to enable)
-      - SMTPS_HOST=mail.example.com
-      - SMTPS_PORT=465
-      - SMTPS_SOCKET=SSL
+      - AD_SMTPS_HOST=mail.example.com
+      - AD_SMTPS_PORT=465
+      - AD_SMTPS_SOCKET=SSL
       # SUBMISSION configuration (host mandatory to enable)
-      - SUBMISSION_HOST=mail.example.com
-      - SUBMISSION_PORT=587
-      - SUBMISSION_SOCKET=STARTTLS
-      - SMTP_SOCKET=STARTTLS
+      - AD_SUBMISSION_HOST=mail.example.com
+      - AD_SUBMISSION_PORT=587
+      - AD_SUBMISSION_SOCKET=STARTTLS
       # MobileSync/ActiveSync configuration (url mandatory to enable)
-      - MOBILESYNC_URL=https://sync.example.com
-      - MOBILESYNC_NAME=sync.example.com
+      - AD_MOBILESYNC_URL=https://sync.example.com
+      - AD_MOBILESYNC_NAME=sync.example.com
       # LDAP configuration (host mandatory to enable)
-      - LDAP_HOST=ldap.example.com
-      - LDAP_PORT=636
-      - LDAP_SOCKET=SSL
-      - LDAP_BASE=dc=ldap,dc=example,dc=com
-      - LDAP_USER_FIELD=uid
-      - LDAP_USER_BASE=ou=People,dc=ldap,dc=example,dc=com
-      - LDAP_SEARCH=(|(objectClass=PostfixBookMailAccount))
+      - AD_LDAP_HOST=ldap.example.com
+      - AD_LDAP_PORT=636
+      - AD_LDAP_SOCKET=SSL
+      - AD_LDAP_BASE=dc=ldap,dc=example,dc=com
+      - AD_LDAP_USER_FIELD=uid
+      - AD_LDAP_USER_BASE=ou=People,dc=ldap,dc=example,dc=com
+      - AD_LDAP_SEARCH=(|(objectClass=PostfixBookMailAccount))
       # Apple mobile config identifiers (identifier mandatory to enable)
-      - PROFILE_IDENTIFIER=com.example.autodiscover
-      - PROFILE_UUID=92943D26-CAB3-4086-897D-DC6C0D8B1E86
-      - MAIL_UUID=7A981A9E-D5D0-4EF8-87FE-39FD6A506FAC
-      - LDAP_UUID=6ECB6BA9-2208-4ABF-9E60-4E9F4CD7309E
+      - AD_PROFILE_IDENTIFIER=com.example.autodiscover
+      - AD_PROFILE_UUID=92943D26-CAB3-4086-897D-DC6C0D8B1E86
+      - AD_MAIL_UUID=7A981A9E-D5D0-4EF8-87FE-39FD6A506FAC
+      - AD_LDAP_UUID=6ECB6BA9-2208-4ABF-9E60-4E9F4CD7309E
     deploy:
       replicas: 1
       labels:
