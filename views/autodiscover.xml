@@ -5,7 +5,7 @@
 			<DisplayName>{{info.name}} Email</DisplayName>
 		</User>
 
-		{%- if imaps.host %}
+		{%- if imap.host %}
 		<Account>
 			<AccountType>email</AccountType>
 			<Action>settings</Action>
@@ -15,8 +15,8 @@
 				<Type>IMAP</Type>
 				<TTL>1</TTL>
 
-				<Server>{{imaps.host}}</Server>
-				<Port>{{imaps.port}}</Port>
+				<Server>{{imap.host}}</Server>
+				<Port>{{imap.port}}</Port>
 
 				<LoginName>{{email}}</LoginName>
 
@@ -24,13 +24,13 @@
 				<DomainName>{{domain}}</DomainName>
 
 				<SPA>off</SPA>
-				<Encryption>{{imapsenc}}</Encryption>
+				<Encryption>{{imapenc}}</Encryption>
 				<AuthRequired>on</AuthRequired>
 			</Protocol>
 		</Account>
 		{% endif -%}
 
-		{%- if pops.host %}
+		{%- if pop.host %}
 		<Account>
 			<AccountType>email</AccountType>
 			<Action>settings</Action>
@@ -40,8 +40,8 @@
 				<Type>POP</Type>
 				<TTL>1</TTL>
 
-				<Server>{{pops.host}}</Server>
-				<Port>{{pops.port}}</Port>
+				<Server>{{pop.host}}</Server>
+				<Port>{{pop.port}}</Port>
 
 				<LoginName>{{email}}</LoginName>
 
@@ -49,13 +49,13 @@
 				<DomainName>{{domain}}</DomainName>
 
 				<SPA>off</SPA>
-				<Encryption>{{popsenc}}</Encryption>
+				<Encryption>{{popenc}}</Encryption>
 				<AuthRequired>on</AuthRequired>
 			</Protocol>
 		</Account>
 		{% endif -%}
 
-		{%- if smtps.host %}
+		{%- if submission.host %}
 		<Account>
 			<AccountType>email</AccountType>
 			<Action>settings</Action>
@@ -65,8 +65,8 @@
 				<Type>SMTP</Type>
 				<TTL>1</TTL>
 
-				<Server>{{smtps.host}}</Server>
-				<Port>{{smtps.port}}</Port>
+				<Server>{{submission.host}}</Server>
+				<Port>{{submission.port}}</Port>
 
 				<LoginName>{{email}}</LoginName>
 
@@ -74,7 +74,7 @@
 				<DomainName>{{domain}}</DomainName>
 
 				<SPA>off</SPA>
-				<Encryption>{{smtpsenc}}</Encryption>
+				<Encryption>{{submissionenc}}</Encryption>
 				<AuthRequired>on</AuthRequired>
 			</Protocol>
 		</Account>
