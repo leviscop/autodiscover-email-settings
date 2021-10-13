@@ -50,18 +50,18 @@ function *autodiscover() {
 		email		= username + "@" + domain;
 	}
 
-	const imapsenc	= settings.imaps.socket === "STARTTLS" ? "TLS" : settings.imaps.socket;
-	const popsenc	= settings.pops.socket === "STARTTLS" ? "TLS" : settings.pops.socket;
-	const smtpsenc	= settings.smtps.socket === "STARTTLS" ? "TLS" : settings.smtps.socket;
+	const imapenc	= settings.imap.socket === "STARTTLS" ? "TLS" : settings.imap.socket;
+	const popenc	= settings.pop.socket === "STARTTLS" ? "TLS" : settings.pop.socket;
+	const submissionenc	= settings.submission.socket === "STARTTLS" ? "TLS" : settings.submission.socket;
 
 	yield this.render("autodiscover", {
 		schema: xmlns,
 		email,
 		username,
 		domain,
-		imapsenc,
-		popsenc,
-		smtpsenc
+		imapenc,
+		popenc,
+		submissionenc
 	});
 }
 
