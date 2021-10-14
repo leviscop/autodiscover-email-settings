@@ -3,7 +3,7 @@
 	<emailProvider id="{{domain}}">
 	    <domain>{{domain}}</domain>
 
-	    <displayName>{{domain}} Email</displayName>
+	    <displayName>{{info.name}} Mail</displayName>
 	    <displayShortName>{{domain}}</displayShortName>
 
 		{%- if imap.host %}
