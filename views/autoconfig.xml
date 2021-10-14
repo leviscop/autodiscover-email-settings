@@ -3,8 +3,8 @@
 	<emailProvider id="{{domain}}">
 	    <domain>{{domain}}</domain>
 
-	    <displayName>{{info.name}} Email</displayName>
-	    <displayShortName>%EMAILLOCALPART%</displayShortName>
+	    <displayName>{{domain}} Email</displayName>
+	    <displayShortName>{{domain}}</displayShortName>
 
 		{%- if imap.host %}
 	    <incomingServer type="imap">
@@ -17,7 +17,7 @@
 		{% endif -%}
 
 		{%- if imaps.host %}
-	    <incomingServer type="imaps">
+	    <incomingServer type="imap">
 			<hostname>{{imaps.host}}</hostname>
 			<port>{{imaps.port}}</port>
 			<socketType>{{imaps.socket}}</socketType>
@@ -37,7 +37,7 @@
 		{% endif -%}
 
 		{%- if pops.host %}
-	    <incomingServer type="pop3s">
+	    <incomingServer type="pop3">
 			<hostname>{{pops.host}}</hostname>
 			<port>{{pops.port}}</port>
 			<socketType>{{pops.socket}}</socketType>
@@ -57,7 +57,7 @@
 		{% endif -%}
 
 		{%- if smtps.host %}
-	    <outgoingServer type="smtps">
+	    <outgoingServer type="smtp">
 			<hostname>{{smtps.host}}</hostname>
 			<port>{{smtps.port}}</port>
 			<socketType>{{smtps.socket}}</socketType>
@@ -67,7 +67,7 @@
 		{% endif -%}
 
 		{%- if submission.host %}
-	    <outgoingServer type="submission">
+	    <outgoingServer type="smtp">
 			<hostname>{{submission.host}}</hostname>
 			<port>{{submission.port}}</port>
 			<socketType>{{submission.socket}}</socketType>
