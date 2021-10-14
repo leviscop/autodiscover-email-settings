@@ -85,7 +85,7 @@ services:
       # SMTP configuration (host mandatory to enable)
       - AD_SMTP_HOST=mail.example.com
       - AD_SMTP_PORT=25
-      - AD_SMTP_SOCKET=NONE
+      - AD_SMTP_SOCKET=STARTTLS
       # SMTPS configuration (host mandatory to enable)
       - AD_SMTPS_HOST=mail.example.com
       - AD_SMTPS_PORT=465
@@ -147,7 +147,7 @@ services:
       # SMTP configuration (host mandatory to enable)
       - AD_SMTP_HOST=mail.example.com
       - AD_SMTP_PORT=25
-      - AD_SMTP_SOCKET=NONE
+      - AD_SMTP_SOCKET=STARTTLS
       # SMTPS configuration (host mandatory to enable)
       - AD_SMTPS_HOST=mail.example.com
       - AD_SMTPS_PORT=465
